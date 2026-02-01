@@ -24,9 +24,15 @@ export function Player({
   const rb = useRef<any>(null)
   const isDragging = useRef(false)
   const prevPointer = useRef({ x: 0, y: 0 })
-  const euler = useRef(new THREE.Euler(0, 0, 0, "YXZ"))
+  // Slight right by default: small negative Y = yaw right
+  const INITIAL_YAW = -0.28
+  const euler = useRef(new THREE.Euler(0, INITIAL_YAW, 0, "YXZ"))
 
   const { camera, gl } = useThree()
+
+  useEffect(() => {
+    camera.quaternion.setFromEuler(euler.current)
+  }, [camera])
   const [, get] = useKeyboardControls<Controls>()
 
   const eyeHeight = 1.6

@@ -1,4 +1,4 @@
-# Splat FPS + In-app Collider Editor
+# Gaussian Room Demo
 
 ## Setup
 ```bash
