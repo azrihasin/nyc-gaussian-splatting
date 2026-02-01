@@ -1,8 +1,8 @@
 import { MutableRefObject, useRef } from "react"
 import { Physics } from "@react-three/rapier"
-import { Splat } from "@react-three/drei"
 import * as THREE from "three"
 
+import { FixedSplat } from "@/FixedSplat"
 import { ColliderStoreProvider, useColliderStore } from "@/colliders/ColliderStore"
 import { AuthoredColliderPhysics } from "@/colliders/AuthoredColliderPhysics"
 import { Player } from "@/Player"
@@ -57,7 +57,7 @@ export function SplatViewer({
       <directionalLight position={[5, 8, 5]} intensity={0.6} />
 
       <group position={SPLAT_TRANSFORM.position} rotation={SPLAT_TRANSFORM.rotation} scale={SPLAT_TRANSFORM.scale}>
-        <Splat src={splatUrl} />
+        <FixedSplat src={splatUrl} />
       </group>
 
       {/* Labeled cubes: wardrobe, sofa, chair with foot rest, chair, office chair, speaker, television, speaker */}
@@ -104,7 +104,7 @@ export function SplatRoomScene({
 
         {/* Splat */}
         <group position={SPLAT_TRANSFORM.position} rotation={SPLAT_TRANSFORM.rotation} scale={SPLAT_TRANSFORM.scale}>
-          <Splat src={splatUrl} />
+          <FixedSplat src={splatUrl} />
         </group>
 
         {/* Labeled cubes: hidden mesh, clickable hotspots only */}
