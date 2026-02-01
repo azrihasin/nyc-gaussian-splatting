@@ -39,7 +39,7 @@ const SPLAT_TRANSFORM = {
 
 // Simplified version for Triplex viewing (no context dependencies)
 export function SplatViewer({
-  splatUrl = "/room.splat",
+  splatUrl = "https://huggingface.co/datasets/azrihasin/test/resolve/main/room.splat",
   bounds = {
     halfX: 5.6555,
     halfZ: 6.9878,
