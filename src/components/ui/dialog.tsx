@@ -44,7 +44,7 @@ const DialogContent = React.forwardRef<
     >
       {children}
       {showCloseButton ? (
-        <DialogPrimitive.Close className="absolute right-5 top-5 rounded-lg p-1.5 opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-black/20 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-black/5">
+        <DialogPrimitive.Close className="absolute right-3 top-3 sm:right-5 sm:top-5 rounded-lg p-2.5 sm:p-1.5 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-black/20 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-black/5 touch-manipulation">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>

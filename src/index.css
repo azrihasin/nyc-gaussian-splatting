@@ -13,3 +13,29 @@
 html, body, #root { height: 100%; }
 body { margin: 0; }
 canvas { display: block; }
+
+/* Mobile: let touch-drag on the 3D canvas be used for look-around, not page scroll.
+   Without this, the browser steals touch for scrolling and look-around feels broken. */
+#root canvas {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Mobile view: safe areas and touch-friendly */
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-area-inset {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Prevent pull-to-refresh / overscroll on canvas area on mobile */
+@media (pointer: coarse) {
+  html { overscroll-behavior: none; }
+  body { -webkit-tap-highlight-color: transparent; }
+  /* Slightly larger touch targets for interactive overlay elements */
+  button, [role="button"] { min-height: 44px; min-width: 44px; }
+}

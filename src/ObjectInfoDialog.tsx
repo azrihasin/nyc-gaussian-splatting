@@ -1,10 +1,12 @@
 import {
-  Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import {
+  ResponsiveDialog,
+  ResponsiveDialogContent,
+} from "@/components/ui/responsive-dialog"
 import type { ClickableObject } from "@/clickableObjects"
 
 type Props = {
@@ -17,26 +19,26 @@ export function ObjectInfoDialog({ object, open, onOpenChange }: Props) {
   if (!object) return null
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-xl gap-6 p-7 pt-9">
-        <div className="flex gap-6">
-          <div className="flex min-h-0 shrink-0 basis-56 overflow-hidden rounded-xl border border-black/10 bg-transparent aspect-[3/4]">
+    <ResponsiveDialog open={open} onOpenChange={onOpenChange}>
+      <ResponsiveDialogContent className="w-[calc(100vw-2rem)] max-w-xl gap-4 p-4 sm:gap-6 sm:p-7 sm:pt-9 max-h-[90dvh] overflow-y-auto">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+          <div className="flex min-h-0 shrink-0 w-full sm:basis-56 overflow-hidden rounded-xl border border-black/10 bg-transparent aspect-[3/4] max-h-[40vh] sm:max-h-none">
             <img
               src={object.imageUrl}
               alt={object.name}
               className="h-full w-full object-contain"
             />
           </div>
-          <div className="min-w-0 flex-1 pt-0.5">
+          <div className="min-w-0 flex-1 pt-0 sm:pt-0.5">
             <DialogHeader className="text-left space-y-2">
-              <DialogTitle className="text-[17px] font-semibold">{object.name}</DialogTitle>
-              <DialogDescription className="text-[15px] text-black/70 leading-snug">
+              <DialogTitle className="text-base sm:text-[17px] font-semibold">{object.name}</DialogTitle>
+              <DialogDescription className="text-sm sm:text-[15px] text-black/70 leading-snug">
                 {object.description}
               </DialogDescription>
             </DialogHeader>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </ResponsiveDialogContent>
+    </ResponsiveDialog>
   )
 }
